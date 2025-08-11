@@ -3540,23 +3540,52 @@ input, textarea, select {
 
 .featured-card {
     background: var(--warm-white);
-    border-radius: var(--radius-lg);
-    padding: 2.5rem;
-    box-shadow: var(--shadow-soft);
-    border: 1px solid rgba(180, 143, 98, 0.1);
-    transition: all 0.4s ease;
+    border-radius: var(--radius-xl);
+    padding: 3rem;
+    box-shadow: 
+        0 15px 40px rgba(180, 143, 98, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(180, 143, 98, 0.15);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
 }
 
+.featured-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, var(--warm-brown), var(--accent-gold));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.featured-card:hover::before {
+    transform: scaleX(1);
+}
+
 .featured-card.highlight {
     background: linear-gradient(135deg, var(--warm-white) 0%, var(--soft-cream) 100%);
-    border: 2px solid var(--warm-brown);
+    border: 3px solid var(--warm-brown);
+    box-shadow: 
+        0 20px 50px rgba(180, 143, 98, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.featured-card.highlight::before {
+    height: 6px;
+    background: linear-gradient(135deg, var(--accent-gold), var(--warm-brown), var(--rich-brown));
 }
 
 .featured-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-elegant);
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 
+        0 25px 60px rgba(180, 143, 98, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border-color: var(--warm-brown);
 }
 
 .card-icon {
@@ -3685,25 +3714,50 @@ input, textarea, select {
 
 .items-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
 }
 
 .menu-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: var(--radius-sm);
-    border: 1px solid rgba(180, 143, 98, 0.1);
-    transition: all 0.3s ease;
+    padding: 2rem;
+    background: var(--warm-white);
+    border-radius: var(--radius-lg);
+    border: 2px solid rgba(180, 143, 98, 0.15);
+    box-shadow: 
+        0 8px 25px rgba(180, 143, 98, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(135deg, var(--warm-brown), var(--accent-gold));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.menu-item:hover::before {
+    transform: scaleX(1);
 }
 
 .menu-item:hover {
-    background: rgba(255, 255, 255, 0.9);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-soft);
+    background: var(--warm-white);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(180, 143, 98, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border-color: rgba(180, 143, 98, 0.3);
 }
 
 .item-content h4 {
@@ -3721,11 +3775,17 @@ input, textarea, select {
 }
 
 .item-price {
-    font-size: var(--text-xl);
+    font-size: var(--text-2xl);
     font-weight: 700;
     color: var(--warm-brown);
     flex-shrink: 0;
-    margin-left: 1rem;
+    margin-left: 1.5rem;
+    background: linear-gradient(135deg, rgba(180, 143, 98, 0.1), rgba(212, 175, 55, 0.1));
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    border: 1px solid rgba(180, 143, 98, 0.2);
+    text-align: center;
+    min-width: 80px;
 }
 
 /* Celebration Cards */
@@ -3736,16 +3796,39 @@ input, textarea, select {
 }
 
 .celebration-card {
-    background: var(--warm-white);
-    border-radius: var(--radius-md);
-    padding: 2rem;
+    background: linear-gradient(135deg, var(--warm-white) 0%, var(--soft-cream) 100%);
+    border-radius: var(--radius-xl);
+    padding: 2.5rem;
     border: 2px solid rgba(180, 143, 98, 0.2);
-    transition: all 0.3s ease;
+    box-shadow: 
+        0 12px 35px rgba(180, 143, 98, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.celebration-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, var(--warm-brown), var(--accent-gold), var(--rich-brown));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.celebration-card:hover::before {
+    transform: scaleX(1);
 }
 
 .celebration-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-elegant);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 
+        0 25px 50px rgba(180, 143, 98, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
     border-color: var(--warm-brown);
 }
 
@@ -3817,6 +3900,68 @@ input, textarea, select {
     left: 0;
     color: var(--warm-brown);
     font-weight: bold;
+}
+
+/* Mobile responsiveness for beautiful boxes */
+@media (max-width: 768px) {
+    .items-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .menu-item {
+        padding: 1.5rem;
+        border-radius: var(--radius-md);
+    }
+    
+    .item-price {
+        font-size: var(--text-xl);
+        padding: 0.4rem 0.8rem;
+        min-width: 70px;
+        margin-left: 1rem;
+    }
+    
+    .featured-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .featured-card {
+        padding: 2rem;
+        border-radius: var(--radius-lg);
+    }
+    
+    .celebration-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .celebration-card {
+        padding: 2rem;
+        border-radius: var(--radius-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-item {
+        padding: 1.2rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .item-price {
+        margin-left: 0;
+        align-self: flex-end;
+    }
+    
+    .featured-card {
+        padding: 1.5rem;
+    }
+    
+    .celebration-card {
+        padding: 1.5rem;
+    }
 }
 
 .pricing-header {
