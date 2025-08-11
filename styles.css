@@ -161,6 +161,8 @@ p {
     width: auto;
     border-radius: 8px;
     transition: all 0.3s ease;
+    display: block;
+    object-fit: contain;
 }
 
 .logo:hover .logo-img {
