@@ -607,7 +607,7 @@ const scrollObserver = new IntersectionObserver((entries) => {
 });
 
 // Observe elements for scroll animations
-document.querySelectorAll('.service-card, .step, .contact-item, .gallery-item, .about-text, .about-image').forEach(el => {
+document.querySelectorAll('.service-card, .step, .contact-item, .gallery-item, .about-text').forEach(el => {
     scrollObserver.observe(el);
 });
 
