@@ -532,13 +532,10 @@ p {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: titleGradient 3s ease-in-out infinite, titleFloat 4s ease-in-out infinite;
     text-shadow: 0 4px 8px rgba(255, 107, 157, 0.3);
 }
 
-.title-word-1 { animation-delay: 0s; }
-.title-word-2 { animation-delay: 0.2s; }
-.title-word-3 { animation-delay: 0.4s; }
+
 
 @keyframes titleGradient {
     0%, 100% { background-position: 0% 50%; }
