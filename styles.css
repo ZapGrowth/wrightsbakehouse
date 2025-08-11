@@ -239,6 +239,18 @@ p {
     border-radius: 2px;
 }
 
+.hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
 /* Hero Section with Cake Topping Header */
 /* ===== GROUNDBREAKING HERO SECTION ===== */
 .hero {
@@ -268,24 +280,24 @@ p {
 
 .hero-bg-layer-1 {
     background: 
-        radial-gradient(circle at 20% 50%, rgba(255, 179, 217, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 142, 142, 0.2) 0%, transparent 50%);
+        radial-gradient(circle at 20% 50%, rgba(180, 143, 98, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(173, 146, 110, 0.2) 0%, transparent 50%);
     transform: translateZ(-100px);
     animation: parallaxLayer1 20s ease-in-out infinite;
 }
 
 .hero-bg-layer-2 {
     background: 
-        radial-gradient(circle at 40% 80%, rgba(255, 214, 231, 0.4) 0%, transparent 50%),
-        radial-gradient(circle at 90% 90%, rgba(255, 179, 217, 0.3) 0%, transparent 50%);
+        radial-gradient(circle at 40% 80%, rgba(240, 224, 187, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 90% 90%, rgba(180, 143, 98, 0.3) 0%, transparent 50%);
     transform: translateZ(-50px);
     animation: parallaxLayer2 15s ease-in-out infinite reverse;
 }
 
 .hero-bg-layer-3 {
     background: 
-        radial-gradient(circle at 60% 30%, rgba(255, 182, 193, 0.2) 0%, transparent 50%),
-        radial-gradient(circle at 10% 70%, rgba(255, 179, 217, 0.3) 0%, transparent 50%);
+        radial-gradient(circle at 60% 30%, rgba(173, 146, 110, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 10% 70%, rgba(180, 143, 98, 0.3) 0%, transparent 50%);
     transform: translateZ(-25px);
     animation: parallaxLayer3 25s ease-in-out infinite;
 }
@@ -655,7 +667,7 @@ p {
     position: fixed;
     width: 20px;
     height: 20px;
-    background: radial-gradient(circle, rgba(255, 107, 157, 0.8), transparent);
+    background: radial-gradient(circle, rgba(180, 143, 98, 0.8), transparent);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
@@ -781,7 +793,7 @@ section {
 
 /* About Section */
 .about {
-    background: linear-gradient(135deg, #fff5f5 0%, #ffeef8 100%);
+    background: linear-gradient(135deg, #faf8f5 0%, #f0e0bb 100%);
 }
 
 .about-content {
@@ -849,7 +861,7 @@ section {
 
 /* Services Section */
 .services {
-    background: linear-gradient(135deg, #ffeef8 0%, #fff5f5 100%);
+    background: linear-gradient(135deg, #f0e0bb 0%, #faf8f5 100%);
 }
 
 .services-grid {
@@ -914,7 +926,7 @@ section {
 
 /* Gallery Section */
 .gallery {
-    background: linear-gradient(135deg, #fff5f5 0%, #ffeef8 100%);
+    background: linear-gradient(135deg, #faf8f5 0%, #f0e0bb 100%);
 }
 
 .gallery-grid {
@@ -932,7 +944,7 @@ section {
     position: relative;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(255, 107, 157, 0.15);
+    box-shadow: 0 10px 25px rgba(180, 143, 98, 0.15);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
     min-height: 300px;
@@ -941,7 +953,7 @@ section {
 
 .gallery-item:hover {
     transform: scale(1.05) rotate(2deg);
-    box-shadow: 0 20px 40px rgba(255, 107, 157, 0.3);
+    box-shadow: 0 20px 40px rgba(180, 143, 98, 0.3);
 }
 
 .gallery-item img {
@@ -963,7 +975,7 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 107, 157, 0.8), rgba(255, 142, 142, 0.8));
+    background: linear-gradient(135deg, rgba(180, 143, 98, 0.8), rgba(255, 142, 142, 0.8));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -982,7 +994,7 @@ section {
 
 /* How to Order Section */
 .how-to-order {
-    background: linear-gradient(135deg, #ffeef8 0%, #fff5f5 100%);
+    background: linear-gradient(135deg, #f0e0bb 0%, #faf8f5 100%);
 }
 
 .steps {
@@ -1110,18 +1122,18 @@ section {
     align-items: center;
     gap: 0.5rem;
     padding: 0.75rem 1rem;
-    background: linear-gradient(135deg, #ff6b9d, #ff8e8e);
+    background: linear-gradient(135deg, #b48f62, #ad926e);
     color: white;
     border-radius: 25px;
     font-size: 0.9rem;
     font-weight: 500;
-    box-shadow: 0 5px 15px rgba(255, 107, 157, 0.3);
+    box-shadow: 0 5px 15px rgba(180, 143, 98, 0.3);
     transition: all 0.3s ease;
 }
 
 .feature-item:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(255, 107, 157, 0.4);
+    box-shadow: 0 8px 20px rgba(180, 143, 98, 0.4);
 }
 
 .feature-item i {
@@ -1133,7 +1145,7 @@ section {
     background: white;
     padding: 2.5rem;
     border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(255, 107, 157, 0.1);
+    box-shadow: 0 20px 40px rgba(180, 143, 98, 0.1);
     position: relative;
     overflow: hidden;
 }
@@ -1145,7 +1157,7 @@ section {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(135deg, #ff6b9d, #ff8e8e, #ffb3d9);
+    background: linear-gradient(135deg, #b48f62, #ad926e, #f0e0bb);
     animation: rainbow 3s ease infinite;
 }
 
@@ -1184,7 +1196,7 @@ section {
 }
 
 .form-group label i {
-    color: #ff6b9d;
+    color: #b48f62;
     font-size: 1rem;
 }
 
@@ -1193,7 +1205,7 @@ section {
 .form-group textarea {
     width: 100%;
     padding: 1rem 1.2rem;
-    border: 2px solid #ffd6e7;
+    border: 2px solid #f0e0bb;
     border-radius: 12px;
     font-size: 1rem;
     transition: all 0.3s ease;
@@ -1206,8 +1218,8 @@ section {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #ff6b9d;
-    box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.1);
+    border-color: #b48f62;
+    box-shadow: 0 0 0 3px rgba(180, 143, 98, 0.1);
     transform: translateY(-2px);
 }
 
@@ -1223,7 +1235,7 @@ section {
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(135deg, #ff6b9d, #ff8e8e);
+    background: linear-gradient(135deg, #b48f62, #ad926e);
     transition: width 0.3s ease;
     z-index: 2;
 }
@@ -1261,7 +1273,7 @@ section {
 .checkmark {
     width: 20px;
     height: 20px;
-    border: 2px solid #ffd6e7;
+    border: 2px solid #f0e0bb;
     border-radius: 4px;
     position: relative;
     transition: all 0.3s ease;
@@ -1269,8 +1281,8 @@ section {
 }
 
 .checkbox-label input[type="checkbox"]:checked + .checkmark {
-    background: linear-gradient(135deg, #ff6b9d, #ff8e8e);
-    border-color: #ff6b9d;
+    background: linear-gradient(135deg, #b48f62, #ad926e);
+    border-color: #b48f62;
 }
 
 .checkbox-label input[type="checkbox"]:checked + .checkmark::after {
@@ -1290,19 +1302,19 @@ section {
     font-size: 1.1rem;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, #ff6b9d, #ff8e8e, #ffb3d9);
+    background: linear-gradient(135deg, #b48f62, #ad926e, #f0e0bb);
     border: none;
     border-radius: 15px;
     color: white;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 10px 25px rgba(255, 107, 157, 0.3);
+    box-shadow: 0 10px 25px rgba(180, 143, 98, 0.3);
 }
 
 .submit-btn:hover {
     transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 15px 35px rgba(255, 107, 157, 0.4);
+    box-shadow: 0 15px 35px rgba(180, 143, 98, 0.4);
 }
 
 .submit-btn:active {
@@ -1429,13 +1441,13 @@ section {
 .form-group textarea:focus + label,
 .form-group textarea:not(:placeholder-shown) + label {
     transform: translateY(-25px) scale(0.8);
-    color: #ff6b9d;
+    color: #b48f62;
 }
 
 /* Form Validation Styles */
 .form-group input:invalid:not(:placeholder-shown),
 .form-group textarea:invalid:not(:placeholder-shown) {
-    border-color: #ff6b6b;
+    border-color: #b48f62;
     box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
 }
 
@@ -1486,7 +1498,7 @@ section {
 
 /* Footer */
 .footer {
-    background: linear-gradient(135deg, #ff6b9d, #ff8e8e, #ffb3d9);
+    background: linear-gradient(135deg, #b48f62, #ad926e, #f0e0bb);
     color: white;
     text-align: center;
     padding: 3rem 2rem;
@@ -1547,7 +1559,7 @@ section {
     right: 30px;
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #ff6b9d, #ff8e8e);
+    background: linear-gradient(135deg, #b48f62, #ad926e);
     color: white;
     border: none;
     border-radius: 50%;
@@ -1556,14 +1568,14 @@ section {
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    box-shadow: 0 10px 25px rgba(255, 107, 157, 0.3);
+    box-shadow: 0 10px 25px rgba(180, 143, 98, 0.3);
     transition: all 0.3s ease;
     z-index: 1000;
 }
 
 .scroll-to-top:hover {
     transform: translateY(-5px) scale(1.1);
-    box-shadow: 0 15px 35px rgba(255, 107, 157, 0.4);
+    box-shadow: 0 15px 35px rgba(180, 143, 98, 0.4);
 }
 
 .scroll-to-top.show {
@@ -1665,15 +1677,15 @@ section {
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 70px;
+        top: 85px;
         flex-direction: column;
         background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(20px);
         width: 100%;
-        height: calc(100vh - 70px);
+        height: calc(100vh - 85px);
         text-align: center;
         transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        box-shadow: 0 10px 27px rgba(255, 107, 157, 0.15);
+        box-shadow: 0 10px 27px rgba(180, 143, 98, 0.15);
         padding: 2rem 0;
         overflow-y: auto;
     }
@@ -1705,7 +1717,7 @@ section {
     }
 
     .nav-menu li a:hover {
-        background: linear-gradient(135deg, #ff6b9d, #ff8e8e);
+        background: linear-gradient(135deg, #b48f62, #ad926e);
         color: white;
         transform: scale(1.05);
     }
@@ -1822,7 +1834,7 @@ section {
         padding: 1rem;
         background: rgba(255, 255, 255, 0.8);
         border-radius: 15px;
-        box-shadow: 0 5px 15px rgba(255, 107, 157, 0.1);
+        box-shadow: 0 5px 15px rgba(180, 143, 98, 0.1);
     }
 
     .services-grid {
@@ -2019,7 +2031,7 @@ section {
     /* Hero Section */
     .hero {
         min-height: 100vh;
-        padding: 1rem 0.5rem;
+        padding: 6rem 0.5rem 2rem 0.5rem;
     }
 
     .hero-content {
@@ -2297,10 +2309,32 @@ section {
 
 /* Mobile-specific optimizations */
 @media (max-width: 768px) {
-    /* Optimize animations for mobile */
-    * {
-        animation-duration: 0.3s !important;
-        transition-duration: 0.3s !important;
+    /* Disable complex animations on mobile for better performance */
+    .hero-bg-layer {
+        animation: none !important;
+    }
+    
+    .particle {
+        animation: none !important;
+        opacity: 0.3;
+    }
+    
+    .decorative-element {
+        animation: none !important;
+        opacity: 0.4;
+    }
+    
+    .topping-layer {
+        animation: none !important;
+    }
+    
+    .sprinkle {
+        animation: none !important;
+    }
+    
+    /* Keep essential animations but reduce complexity */
+    .btn, .nav-menu li a {
+        transition-duration: 0.2s !important;
     }
     
     /* Reduce motion for accessibility */
@@ -2363,8 +2397,8 @@ section {
     .form-group.focused input,
     .form-group.focused textarea,
     .form-group.focused select {
-        border-color: #ff6b9d;
-        box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.1);
+        border-color: #b48f62;
+        box-shadow: 0 0 0 3px rgba(180, 143, 98, 0.1);
     }
 }
 
@@ -2416,7 +2450,7 @@ input, textarea, select {
     .step,
     .contact-item,
     .gallery-item {
-        box-shadow: 0 5px 15px rgba(255, 107, 157, 0.15);
+        box-shadow: 0 5px 15px rgba(180, 143, 98, 0.15);
     }
 
     /* Optimize form interactions */
@@ -2424,7 +2458,7 @@ input, textarea, select {
     .form-group textarea:focus,
     .form-group select:focus {
         transform: none;
-        box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.2);
+        box-shadow: 0 0 0 3px rgba(180, 143, 98, 0.2);
     }
 
     /* Touch-friendly button sizes */
@@ -2498,7 +2532,7 @@ input, textarea, select {
     position: absolute;
     width: 4px;
     height: 4px;
-    background: #ffb3d9;
+    background: #f0e0bb;
     border-radius: 50%;
     animation: sparkle 2s linear infinite;
 }
@@ -2559,7 +2593,7 @@ input, textarea, select {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, #ff6b9d, #ff8e8e, #ffb3d9, #ffd6e7, #ff6b9d);
+    background: linear-gradient(45deg, #b48f62, #ad926e, #f0e0bb, #f0e0bb, #b48f62);
     background-size: 400% 400%;
     animation: rainbow 3s ease infinite;
     z-index: -1;
@@ -2582,7 +2616,7 @@ input, textarea, select {
 /* Terms & Conditions Page */
 .terms-section {
     padding: 8rem 2rem 5rem;
-    background: linear-gradient(135deg, #ffeef8 0%, #fff5f5 50%, #f0f8ff 100%);
+    background: linear-gradient(135deg, #f0e0bb 0%, #faf8f5 50%, #f0e0bb 100%);
     min-height: 100vh;
 }
 
@@ -2595,11 +2629,11 @@ input, textarea, select {
 .terms-header h1 {
     font-size: 3rem;
     margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, #ff6b9d, #ff8e8e, #ffb3d9);
+    background: linear-gradient(135deg, #b48f62, #ad926e, #f0e0bb);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 2px 2px 4px rgba(255, 107, 157, 0.3);
+    text-shadow: 2px 2px 4px rgba(180, 143, 98, 0.3);
 }
 
 .terms-header h2 {
@@ -2622,7 +2656,7 @@ input, textarea, select {
     background: white;
     border-radius: 20px;
     padding: 3rem;
-    box-shadow: 0 20px 40px rgba(255, 107, 157, 0.1);
+    box-shadow: 0 20px 40px rgba(180, 143, 98, 0.1);
     position: relative;
     overflow: hidden;
 }
@@ -2634,7 +2668,7 @@ input, textarea, select {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(135deg, #ff6b9d, #ff8e8e, #ffb3d9);
+    background: linear-gradient(135deg, #b48f62, #ad926e, #f0e0bb);
     animation: rainbow 3s ease infinite;
 }
 
@@ -2642,8 +2676,8 @@ input, textarea, select {
     margin-bottom: 2.5rem;
     padding: 2rem;
     border-radius: 15px;
-    background: linear-gradient(135deg, #fff5f5 0%, #ffeef8 100%);
-    border-left: 4px solid #ff6b9d;
+    background: linear-gradient(135deg, #faf8f5 0%, #f0e0bb 100%);
+    border-left: 4px solid #b48f62;
     transition: all 0.3s ease;
     animation: fadeInUp 0.8s ease-out;
     animation-fill-mode: both;
@@ -2664,7 +2698,7 @@ input, textarea, select {
 
 .terms-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(255, 107, 157, 0.2);
+    box-shadow: 0 15px 35px rgba(180, 143, 98, 0.2);
     border-left-width: 6px;
 }
 
@@ -2678,7 +2712,7 @@ input, textarea, select {
 }
 
 .terms-item h3 i {
-    color: #ff6b9d;
+    color: #b48f62;
     font-size: 1.2rem;
     width: 25px;
     text-align: center;
@@ -2711,7 +2745,7 @@ input, textarea, select {
     padding: 2rem;
     background: white;
     border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(255, 107, 157, 0.1);
+    box-shadow: 0 10px 25px rgba(180, 143, 98, 0.1);
     animation: fadeInUp 1s ease-out 1.5s both;
 }
 
@@ -2721,14 +2755,14 @@ input, textarea, select {
 }
 
 .terms-footer a {
-    color: #ff6b9d;
+    color: #b48f62;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
 }
 
 .terms-footer a:hover {
-    color: #ff8e8e;
+    color: #ad926e;
     text-decoration: underline;
 }
 
@@ -2814,7 +2848,7 @@ input, textarea, select {
 /* Allergy Disclaimer Page */
 .allergy-section {
     padding: 8rem 2rem 5rem;
-    background: linear-gradient(135deg, #fff5f5 0%, #ffeef8 50%, #f0f8ff 100%);
+    background: linear-gradient(135deg, #faf8f5 0%, #f0e0bb 50%, #faf8f5 100%);
     min-height: 100vh;
 }
 
@@ -2827,11 +2861,11 @@ input, textarea, select {
 .allergy-header h1 {
     font-size: 3rem;
     margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, #ff6b9d, #ff8e8e, #ffb3d9);
+    background: linear-gradient(135deg, #b48f62, #ad926e, #f0e0bb);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 2px 2px 4px rgba(255, 107, 157, 0.3);
+    text-shadow: 2px 2px 4px rgba(180, 143, 98, 0.3);
 }
 
 .allergy-header h2 {
@@ -2842,7 +2876,7 @@ input, textarea, select {
 
 .warning-icon {
     font-size: 3rem;
-    color: #ff6b6b;
+    color: #b48f62;
     margin-top: 1rem;
     animation: pulse 2s infinite;
 }
@@ -2864,7 +2898,7 @@ input, textarea, select {
     background: white;
     border-radius: 20px;
     padding: 3rem;
-    box-shadow: 0 20px 40px rgba(255, 107, 157, 0.1);
+    box-shadow: 0 20px 40px rgba(180, 143, 98, 0.1);
     position: relative;
     overflow: hidden;
 }
@@ -2876,13 +2910,13 @@ input, textarea, select {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(135deg, #ff6b6b, #ff8e8e, #ffb3d9);
+    background: linear-gradient(135deg, #b48f62, #ad926e, #f0e0bb);
     animation: rainbow 3s ease infinite;
 }
 
 .allergy-warning {
-    background: linear-gradient(135deg, #fff5f5 0%, #ffeef8 100%);
-    border: 2px solid #ff6b6b;
+    background: linear-gradient(135deg, #faf8f5 0%, #f0e0bb 100%);
+    border: 2px solid #b48f62;
     border-radius: 15px;
     padding: 2rem;
     margin-bottom: 2rem;
@@ -2891,7 +2925,7 @@ input, textarea, select {
 }
 
 .allergy-warning h3 {
-    color: #ff6b6b;
+    color: #b48f62;
     font-size: 1.4rem;
     margin-bottom: 1rem;
     display: flex;
@@ -2910,8 +2944,8 @@ input, textarea, select {
 }
 
 .allergy-info {
-    background: linear-gradient(135deg, #fff5f5 0%, #ffeef8 100%);
-    border-left: 4px solid #ff8e8e;
+    background: linear-gradient(135deg, #faf8f5 0%, #f0e0bb 100%);
+    border-left: 4px solid #ad926e;
     border-radius: 15px;
     padding: 2rem;
     margin-bottom: 2rem;
@@ -2919,7 +2953,7 @@ input, textarea, select {
 }
 
 .allergy-info h3 {
-    color: #ff8e8e;
+    color: #ad926e;
     font-size: 1.3rem;
     margin-bottom: 1rem;
     display: flex;
@@ -2937,8 +2971,8 @@ input, textarea, select {
 }
 
 .ingredients-list {
-    background: linear-gradient(135deg, #fff5f5 0%, #ffeef8 100%);
-    border-left: 4px solid #ffb3d9;
+    background: linear-gradient(135deg, #faf8f5 0%, #f0e0bb 100%);
+    border-left: 4px solid #f0e0bb;
     border-radius: 15px;
     padding: 2rem;
     margin-bottom: 2rem;
@@ -2946,7 +2980,7 @@ input, textarea, select {
 }
 
 .ingredients-list h3 {
-    color: #ffb3d9;
+    color: #f0e0bb;
     font-size: 1.3rem;
     margin-bottom: 1rem;
     display: flex;
@@ -2976,7 +3010,7 @@ input, textarea, select {
     padding: 0.75rem 0;
     color: #333;
     font-size: 1.1rem;
-    border-bottom: 1px solid #ffd6e7;
+    border-bottom: 1px solid #f0e0bb;
 }
 
 .ingredients-list ul li:last-child {
@@ -2984,15 +3018,15 @@ input, textarea, select {
 }
 
 .ingredients-list ul li i {
-    color: #ff6b9d;
+    color: #b48f62;
     font-size: 1.2rem;
     width: 25px;
     text-align: center;
 }
 
 .coloring-notice {
-    background: linear-gradient(135deg, #fff5f5 0%, #ffeef8 100%);
-    border-left: 4px solid #ffd6e7;
+    background: linear-gradient(135deg, #faf8f5 0%, #f0e0bb 100%);
+    border-left: 4px solid #f0e0bb;
     border-radius: 15px;
     padding: 2rem;
     margin-bottom: 2rem;
@@ -3000,7 +3034,7 @@ input, textarea, select {
 }
 
 .coloring-notice h3 {
-    color: #ff6b9d;
+    color: #b48f62;
     font-size: 1.3rem;
     margin-bottom: 1rem;
     display: flex;
@@ -3018,8 +3052,8 @@ input, textarea, select {
 }
 
 .customer-responsibility {
-    background: linear-gradient(135deg, #fff5f5 0%, #ffeef8 100%);
-    border-left: 4px solid #ff6b9d;
+    background: linear-gradient(135deg, #faf8f5 0%, #f0e0bb 100%);
+    border-left: 4px solid #b48f62;
     border-radius: 15px;
     padding: 2rem;
     margin-bottom: 2rem;
@@ -3027,7 +3061,7 @@ input, textarea, select {
 }
 
 .customer-responsibility h3 {
-    color: #ff6b9d;
+    color: #b48f62;
     font-size: 1.3rem;
     margin-bottom: 1rem;
     display: flex;
@@ -3062,7 +3096,7 @@ input, textarea, select {
     content: '✓';
     position: absolute;
     left: 0;
-    color: #ff6b9d;
+    color: #b48f62;
     font-weight: bold;
 }
 
@@ -3076,12 +3110,12 @@ input, textarea, select {
     border-radius: 15px;
     padding: 2rem;
     margin-bottom: 2rem;
-    box-shadow: 0 10px 25px rgba(255, 107, 157, 0.1);
+    box-shadow: 0 10px 25px rgba(180, 143, 98, 0.1);
     text-align: center;
 }
 
 .contact-info h3 {
-    color: #ff6b9d;
+    color: #b48f62;
     font-size: 1.3rem;
     margin-bottom: 1rem;
     display: flex;
@@ -3114,14 +3148,14 @@ input, textarea, select {
 }
 
 .contact-details a {
-    color: #ff6b9d;
+    color: #b48f62;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
 }
 
 .contact-details a:hover {
-    color: #ff8e8e;
+    color: #ad926e;
     text-decoration: underline;
 }
 
@@ -3255,7 +3289,7 @@ input, textarea, select {
 /* Pricing/Menu Page */
 .pricing-section {
     padding: 8rem 2rem 5rem;
-    background: linear-gradient(135deg, #ffeef8 0%, #fff5f5 50%, #f0f8ff 100%);
+    background: linear-gradient(135deg, #f0e0bb 0%, #faf8f5 50%, #f0e0bb 100%);
     min-height: 100vh;
 }
 
@@ -3268,11 +3302,11 @@ input, textarea, select {
 .pricing-header h1 {
     font-size: 3rem;
     margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, #ff6b9d, #ff8e8e, #ffb3d9);
+    background: linear-gradient(135deg, #b48f62, #ad926e, #f0e0bb);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 2px 2px 4px rgba(255, 107, 157, 0.3);
+    text-shadow: 2px 2px 4px rgba(180, 143, 98, 0.3);
 }
 
 .pricing-header h2 {
@@ -3299,7 +3333,7 @@ input, textarea, select {
     border-radius: 20px;
     padding: 3rem;
     margin-bottom: 3rem;
-    box-shadow: 0 20px 40px rgba(255, 107, 157, 0.1);
+    box-shadow: 0 20px 40px rgba(180, 143, 98, 0.1);
     position: relative;
     overflow: hidden;
     animation: fadeInUp 0.8s ease-out;
@@ -3318,7 +3352,7 @@ input, textarea, select {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(135deg, #ff6b9d, #ff8e8e, #ffb3d9);
+    background: linear-gradient(135deg, #b48f62, #ad926e, #f0e0bb);
     animation: rainbow 3s ease infinite;
 }
 
@@ -3338,7 +3372,7 @@ input, textarea, select {
 }
 
 .category-header h3 i {
-    color: #ff6b9d;
+    color: #b48f62;
     font-size: 1.8rem;
 }
 
@@ -3351,7 +3385,7 @@ input, textarea, select {
 
 .note {
     font-size: 0.9rem;
-    color: #ff6b9d;
+    color: #b48f62;
     font-weight: 600;
 }
 
@@ -3362,10 +3396,10 @@ input, textarea, select {
 }
 
 .price-item {
-    background: linear-gradient(135deg, #fff5f5 0%, #ffeef8 100%);
+    background: linear-gradient(135deg, #faf8f5 0%, #f0e0bb 100%);
     border-radius: 15px;
     padding: 1.5rem;
-    border-left: 4px solid #ff6b9d;
+    border-left: 4px solid #b48f62;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -3378,7 +3412,7 @@ input, textarea, select {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(255, 142, 142, 0.1));
+    background: linear-gradient(135deg, rgba(180, 143, 98, 0.1), rgba(255, 142, 142, 0.1));
     transform: translateX(-100%);
     transition: transform 0.3s ease;
 }
@@ -3389,7 +3423,7 @@ input, textarea, select {
 
 .price-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(255, 107, 157, 0.2);
+    box-shadow: 0 15px 35px rgba(180, 143, 98, 0.2);
     border-left-width: 6px;
 }
 
@@ -3412,8 +3446,8 @@ input, textarea, select {
 .price {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #ff6b9d;
-    background: linear-gradient(135deg, #ff6b9d, #ff8e8e);
+    color: #b48f62;
+    background: linear-gradient(135deg, #b48f62, #ad926e);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -3435,16 +3469,16 @@ input, textarea, select {
 }
 
 .occasion-cake {
-    background: linear-gradient(135deg, #fff5f5 0%, #ffeef8 100%);
+    background: linear-gradient(135deg, #faf8f5 0%, #f0e0bb 100%);
     border-radius: 15px;
     padding: 2rem;
-    border-left: 4px solid #ff6b9d;
+    border-left: 4px solid #b48f62;
     transition: all 0.3s ease;
 }
 
 .occasion-cake:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(255, 107, 157, 0.2);
+    box-shadow: 0 15px 35px rgba(180, 143, 98, 0.2);
 }
 
 .occasion-cake h4 {
@@ -3457,7 +3491,7 @@ input, textarea, select {
 }
 
 .occasion-cake h4 i {
-    color: #ff6b9d;
+    color: #b48f62;
     font-size: 1.3rem;
 }
 
@@ -3472,7 +3506,7 @@ input, textarea, select {
     line-height: 1.6;
     position: relative;
     padding-left: 1.5rem;
-    border-bottom: 1px solid #ffd6e7;
+    border-bottom: 1px solid #f0e0bb;
 }
 
 .cake-details ul li:last-child {
@@ -3483,7 +3517,7 @@ input, textarea, select {
     content: '✓';
     position: absolute;
     left: 0;
-    color: #ff6b9d;
+    color: #b48f62;
     font-weight: bold;
 }
 
@@ -3497,12 +3531,12 @@ input, textarea, select {
     border-radius: 15px;
     padding: 2rem;
     margin-bottom: 2rem;
-    box-shadow: 0 10px 25px rgba(255, 107, 157, 0.1);
+    box-shadow: 0 10px 25px rgba(180, 143, 98, 0.1);
     text-align: center;
 }
 
 .order-info h3 {
-    color: #ff6b9d;
+    color: #b48f62;
     font-size: 1.5rem;
     margin-bottom: 1rem;
     display: flex;
@@ -3536,27 +3570,27 @@ input, textarea, select {
 }
 
 .contact-details a {
-    color: #ff6b9d;
+    color: #b48f62;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
 }
 
 .contact-details a:hover {
-    color: #ff8e8e;
+    color: #ad926e;
     text-decoration: underline;
 }
 
 .important-notes {
-    background: linear-gradient(135deg, #fff5f5 0%, #ffeef8 100%);
+    background: linear-gradient(135deg, #faf8f5 0%, #f0e0bb 100%);
     border-radius: 15px;
     padding: 2rem;
     margin-bottom: 2rem;
-    border-left: 4px solid #ff8e8e;
+    border-left: 4px solid #ad926e;
 }
 
 .important-notes h3 {
-    color: #ff8e8e;
+    color: #ad926e;
     font-size: 1.3rem;
     margin-bottom: 1rem;
     display: flex;
@@ -3585,7 +3619,7 @@ input, textarea, select {
     content: '•';
     position: absolute;
     left: 0;
-    color: #ff6b9d;
+    color: #b48f62;
     font-weight: bold;
     font-size: 1.2rem;
 }
