@@ -238,6 +238,7 @@ p {
 }
 
 /* Hero Section with Cake Topping Header */
+/* ===== GROUNDBREAKING HERO SECTION ===== */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -248,110 +249,497 @@ p {
     background: linear-gradient(135deg, #ffeef8 0%, #fff5f5 50%, #f0f8ff 100%);
     overflow: hidden;
     padding: 6rem 0 4rem 0;
+    perspective: 1000px;
 }
 
-/* Cake Topping Header Animation */
-.hero::before {
-    content: '';
+/* 3D Parallax Background Layers */
+.hero-bg-layer {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    height: 200px;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+}
+
+.hero-bg-layer-1 {
     background: 
-        radial-gradient(circle at 20% 50%, #ffb3d9 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, #ff8e8e 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, #ffd6e7 0%, transparent 50%),
-        radial-gradient(circle at 90% 90%, #ffb3d9 0%, transparent 50%);
-    animation: cakeTopping 8s ease-in-out infinite;
-    z-index: 1;
+        radial-gradient(circle at 20% 50%, rgba(255, 179, 217, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 142, 142, 0.2) 0%, transparent 50%);
+    transform: translateZ(-100px);
+    animation: parallaxLayer1 20s ease-in-out infinite;
 }
 
-@keyframes cakeTopping {
-    0%, 100% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.8;
-    }
-    25% {
-        transform: translateY(-10px) rotate(2deg);
-        opacity: 1;
-    }
-    50% {
-        transform: translateY(-5px) rotate(-1deg);
-        opacity: 0.9;
-    }
-    75% {
-        transform: translateY(-15px) rotate(1deg);
-        opacity: 1;
-    }
+.hero-bg-layer-2 {
+    background: 
+        radial-gradient(circle at 40% 80%, rgba(255, 214, 231, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 90% 90%, rgba(255, 179, 217, 0.3) 0%, transparent 50%);
+    transform: translateZ(-50px);
+    animation: parallaxLayer2 15s ease-in-out infinite reverse;
 }
 
-/* Floating Cake Decorations */
-.cake-decoration {
+.hero-bg-layer-3 {
+    background: 
+        radial-gradient(circle at 60% 30%, rgba(255, 182, 193, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 10% 70%, rgba(255, 179, 217, 0.3) 0%, transparent 50%);
+    transform: translateZ(-25px);
+    animation: parallaxLayer3 25s ease-in-out infinite;
+}
+
+@keyframes parallaxLayer1 {
+    0%, 100% { transform: translateZ(-100px) translateY(0px) rotate(0deg); }
+    33% { transform: translateZ(-100px) translateY(-10px) rotate(1deg); }
+    66% { transform: translateZ(-100px) translateY(5px) rotate(-1deg); }
+}
+
+@keyframes parallaxLayer2 {
+    0%, 100% { transform: translateZ(-50px) translateY(0px) rotate(0deg); }
+    50% { transform: translateZ(-50px) translateY(-15px) rotate(2deg); }
+}
+
+@keyframes parallaxLayer3 {
+    0%, 100% { transform: translateZ(-25px) translateY(0px) rotate(0deg); }
+    25% { transform: translateZ(-25px) translateY(-8px) rotate(-1deg); }
+    75% { transform: translateZ(-25px) translateY(8px) rotate(1deg); }
+}
+
+/* Interactive Particle System */
+.particle-system {
     position: absolute;
-    font-size: 2rem;
-    animation: float 6s ease-in-out infinite;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
     z-index: 2;
 }
 
-.cake-decoration:nth-child(1) {
-    top: 15%;
-    left: 10%;
-    animation-delay: 0s;
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: linear-gradient(45deg, #ff6b9d, #ff8e8e, #ffb3d9);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 107, 157, 0.6);
+    animation: particleFloat 8s ease-in-out infinite;
 }
 
-.cake-decoration:nth-child(2) {
-    top: 25%;
-    right: 15%;
-    animation-delay: 1s;
-}
+.particle-1 { top: 10%; left: 15%; animation-delay: 0s; }
+.particle-2 { top: 20%; right: 20%; animation-delay: 1s; }
+.particle-3 { top: 30%; left: 25%; animation-delay: 2s; }
+.particle-4 { top: 15%; right: 30%; animation-delay: 3s; }
+.particle-5 { top: 40%; left: 10%; animation-delay: 4s; }
+.particle-6 { top: 25%; right: 10%; animation-delay: 5s; }
+.particle-7 { top: 35%; left: 35%; animation-delay: 6s; }
+.particle-8 { top: 45%; right: 25%; animation-delay: 7s; }
+.particle-9 { top: 50%; left: 20%; animation-delay: 8s; }
+.particle-10 { top: 60%; right: 15%; animation-delay: 9s; }
 
-.cake-decoration:nth-child(3) {
-    top: 35%;
-    left: 20%;
-    animation-delay: 2s;
-}
-
-.cake-decoration:nth-child(4) {
-    top: 20%;
-    right: 25%;
-    animation-delay: 3s;
-}
-
-@keyframes float {
+@keyframes particleFloat {
     0%, 100% {
-        transform: translateY(0px) rotate(0deg);
+        transform: translateY(0px) translateX(0px) scale(1);
+        opacity: 0.6;
+    }
+    25% {
+        transform: translateY(-30px) translateX(10px) scale(1.2);
+        opacity: 1;
     }
     50% {
-        transform: translateY(-20px) rotate(10deg);
+        transform: translateY(-15px) translateX(-5px) scale(0.8);
+        opacity: 0.8;
+    }
+    75% {
+        transform: translateY(-40px) translateX(15px) scale(1.1);
+        opacity: 1;
     }
 }
 
+/* Floating Cake Elements with Physics */
+.floating-cake {
+    position: absolute;
+    font-size: 2.5rem;
+    filter: drop-shadow(0 4px 8px rgba(255, 107, 157, 0.3));
+    animation: floatingPhysics 12s ease-in-out infinite;
+    z-index: 3;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.floating-cake:hover {
+    transform: scale(1.3) rotate(15deg);
+    filter: drop-shadow(0 8px 16px rgba(255, 107, 157, 0.6));
+}
+
+.floating-cake-1 { top: 12%; left: 8%; animation-delay: 0s; }
+.floating-cake-2 { top: 18%; right: 12%; animation-delay: 1.5s; }
+.floating-cake-3 { top: 28%; left: 18%; animation-delay: 3s; }
+.floating-cake-4 { top: 22%; right: 22%; animation-delay: 4.5s; }
+.floating-cake-5 { top: 38%; left: 12%; animation-delay: 6s; }
+.floating-cake-6 { top: 32%; right: 8%; animation-delay: 7.5s; }
+.floating-cake-7 { top: 48%; left: 28%; animation-delay: 9s; }
+.floating-cake-8 { top: 42%; right: 18%; animation-delay: 10.5s; }
+
+@keyframes floatingPhysics {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+    }
+    16.66% {
+        transform: translateY(-25px) translateX(8px) rotate(5deg);
+    }
+    33.33% {
+        transform: translateY(-15px) translateX(-3px) rotate(-3deg);
+    }
+    50% {
+        transform: translateY(-35px) translateX(12px) rotate(8deg);
+    }
+    66.66% {
+        transform: translateY(-8px) translateX(-6px) rotate(-5deg);
+    }
+    83.33% {
+        transform: translateY(-28px) translateX(10px) rotate(3deg);
+    }
+}
+
+/* Dynamic Cake Topping Header */
+.cake-topping-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    z-index: 4;
+    overflow: hidden;
+}
+
+.topping-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 0 50% 50% / 0 0 100% 100%;
+}
+
+.topping-layer-1 {
+    background: linear-gradient(135deg, #ffb3d9, #ff8e8e);
+    animation: toppingWave1 6s ease-in-out infinite;
+}
+
+.topping-layer-2 {
+    background: linear-gradient(135deg, #ffd6e7, #ffb3d9);
+    animation: toppingWave2 8s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+.topping-layer-3 {
+    background: linear-gradient(135deg, #ff8e8e, #ffd6e7);
+    animation: toppingWave3 10s ease-in-out infinite;
+    opacity: 0.5;
+}
+
+@keyframes toppingWave1 {
+    0%, 100% { transform: translateY(0px) scaleX(1); }
+    50% { transform: translateY(-8px) scaleX(1.1); }
+}
+
+@keyframes toppingWave2 {
+    0%, 100% { transform: translateY(0px) scaleX(1) rotate(0deg); }
+    50% { transform: translateY(-12px) scaleX(0.9) rotate(2deg); }
+}
+
+@keyframes toppingWave3 {
+    0%, 100% { transform: translateY(0px) scaleX(1) rotate(0deg); }
+    50% { transform: translateY(-6px) scaleX(1.05) rotate(-1deg); }
+}
+
+.topping-sprinkles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.sprinkle {
+    position: absolute;
+    width: 3px;
+    height: 12px;
+    background: linear-gradient(to bottom, #ff6b9d, #ff8e8e, #ffb3d9);
+    border-radius: 2px;
+    animation: sprinkleBounce 4s ease-in-out infinite;
+}
+
+.sprinkle-1 { top: 20%; left: 15%; animation-delay: 0s; }
+.sprinkle-2 { top: 25%; left: 25%; animation-delay: 0.5s; }
+.sprinkle-3 { top: 30%; left: 35%; animation-delay: 1s; }
+.sprinkle-4 { top: 35%; left: 45%; animation-delay: 1.5s; }
+.sprinkle-5 { top: 40%; left: 55%; animation-delay: 2s; }
+.sprinkle-6 { top: 45%; left: 65%; animation-delay: 2.5s; }
+.sprinkle-7 { top: 50%; left: 75%; animation-delay: 3s; }
+.sprinkle-8 { top: 55%; left: 85%; animation-delay: 3.5s; }
+
+@keyframes sprinkleBounce {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(180deg); }
+}
+
+/* Advanced Hero Content */
 .hero-content {
     position: relative;
-    z-index: 3;
-    max-width: 800px;
+    z-index: 5;
+    max-width: 900px;
     padding: 2rem;
+    animation: heroContentAppear 1.5s ease-out;
 }
 
-.hero h1 {
-    margin-bottom: 1.5rem;
-    animation: slideInDown 1s ease-out;
+@keyframes heroContentAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+    }
 }
 
-.hero p {
-    font-size: 1.3rem;
+.hero-title-container {
     margin-bottom: 2rem;
+    perspective: 1000px;
+}
+
+.hero-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.title-word {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff6b9d, #ff8e8e, #ffb3d9, #ffd6e7);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: titleGradient 3s ease-in-out infinite, titleFloat 4s ease-in-out infinite;
+    text-shadow: 0 4px 8px rgba(255, 107, 157, 0.3);
+}
+
+.title-word-1 { animation-delay: 0s; }
+.title-word-2 { animation-delay: 0.2s; }
+.title-word-3 { animation-delay: 0.4s; }
+
+@keyframes titleGradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes titleFloat {
+    0%, 100% { transform: translateY(0px) rotateX(0deg); }
+    50% { transform: translateY(-5px) rotateX(5deg); }
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
     color: #666;
     animation: slideInUp 1s ease-out 0.3s both;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    color: #777;
+    animation: slideInUp 1s ease-out 0.6s both;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
 }
 
 .hero-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     justify-content: center;
     flex-wrap: wrap;
-    animation: slideInUp 1s ease-out 0.6s both;
+    animation: slideInUp 1s ease-out 0.9s both;
+}
+
+/* Enhanced Hero Buttons */
+.btn-hero {
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s;
+}
+
+.btn-hero:hover::before {
+    left: 100%;
+}
+
+.btn-hero:hover {
+    transform: translateY(-8px) scale(1.05) rotateX(10deg);
+    box-shadow: 0 20px 40px rgba(255, 107, 157, 0.4);
+}
+
+.btn-content {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Interactive Sparkles */
+.sparkle-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 6;
+}
+
+.sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #fff, 0 0 20px #ff6b9d;
+    animation: sparkleTwinkle 3s ease-in-out infinite;
+}
+
+.sparkle-1 { top: 15%; left: 20%; animation-delay: 0s; }
+.sparkle-2 { top: 25%; right: 25%; animation-delay: 0.6s; }
+.sparkle-3 { top: 35%; left: 30%; animation-delay: 1.2s; }
+.sparkle-4 { top: 45%; right: 35%; animation-delay: 1.8s; }
+.sparkle-5 { top: 55%; left: 40%; animation-delay: 2.4s; }
+
+@keyframes sparkleTwinkle {
+    0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+
+/* Mouse Trail Effect */
+.mouse-trail {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, rgba(255, 107, 157, 0.8), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* ===== INTERACTIVE ANIMATIONS ===== */
+
+/* Particle explosion animation */
+@keyframes explosion {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100% {
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+}
+
+/* Temporary sparkle animation */
+@keyframes tempSparkle {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1) rotate(180deg);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0) rotate(360deg);
+    }
+}
+
+/* Cake confetti animation */
+@keyframes cakeConfetti {
+    0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) rotate(720deg);
+    }
+}
+
+/* Title pulse animation */
+@keyframes titlePulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Button particle animation */
+@keyframes buttonParticle {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0) translateY(-20px);
+    }
+}
+
+/* Button ripple animation */
+@keyframes buttonRipple {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100% {
+        width: 200px;
+        height: 200px;
+        opacity: 0;
+    }
 }
 
 @keyframes slideInDown {
@@ -1343,15 +1731,35 @@ section {
         line-height: 1.7;
     }
 
-    /* Hero Section */
+    /* Hero Section - Mobile Optimized */
     .hero {
         min-height: 100vh;
         padding: 2rem 1rem;
+        perspective: 500px;
     }
 
     .hero-content {
         padding: 2rem 1rem;
         text-align: center;
+        max-width: 100%;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+        gap: 0.3rem;
+    }
+
+    .title-word {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        padding: 0 1rem;
     }
 
     .hero-buttons {
@@ -1368,15 +1776,29 @@ section {
         font-size: 1.1rem;
     }
 
-    /* Cake Decorations - Mobile Optimized */
-    .cake-decoration {
-        font-size: 2rem;
+    /* Floating Cake Elements - Mobile Optimized */
+    .floating-cake {
+        font-size: 1.8rem;
     }
 
-    .cake-decoration:nth-child(1) { animation-delay: 0s; }
-    .cake-decoration:nth-child(2) { animation-delay: 1s; }
-    .cake-decoration:nth-child(3) { animation-delay: 2s; }
-    .cake-decoration:nth-child(4) { animation-delay: 3s; }
+    .particle {
+        width: 3px;
+        height: 3px;
+    }
+
+    .sparkle {
+        width: 4px;
+        height: 4px;
+    }
+
+    .cake-topping-header {
+        height: 150px;
+    }
+
+    .sprinkle {
+        width: 2px;
+        height: 8px;
+    }
 
     /* Layout Adjustments */
     .about-content,

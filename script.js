@@ -57,6 +57,280 @@ function handleSwipe() {
     }
 }
 
+// ===== GROUNDBREAKING HERO INTERACTIONS =====
+
+// Interactive Particle System
+function initParticleSystem() {
+    const particles = document.querySelectorAll('.particle');
+    const hero = document.querySelector('.hero');
+    
+    particles.forEach((particle, index) => {
+        // Add mouse interaction
+        particle.addEventListener('mouseenter', () => {
+            particle.style.transform = 'scale(2) rotate(180deg)';
+            particle.style.boxShadow = '0 0 20px rgba(255, 107, 157, 0.8)';
+        });
+        
+        particle.addEventListener('mouseleave', () => {
+            particle.style.transform = '';
+            particle.style.boxShadow = '';
+        });
+        
+        // Add click effect
+        particle.addEventListener('click', () => {
+            createParticleExplosion(particle);
+        });
+    });
+}
+
+// Particle explosion effect
+function createParticleExplosion(particle) {
+    const explosion = document.createElement('div');
+    explosion.className = 'particle-explosion';
+    explosion.style.cssText = `
+        position: absolute;
+        left: ${particle.offsetLeft}px;
+        top: ${particle.offsetTop}px;
+        width: 0;
+        height: 0;
+        background: radial-gradient(circle, #ff6b9d, #ff8e8e, transparent);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 1000;
+        animation: explosion 0.6s ease-out forwards;
+    `;
+    
+    document.body.appendChild(explosion);
+    
+    setTimeout(() => {
+        explosion.remove();
+    }, 600);
+}
+
+// Floating cake interactions
+function initFloatingCakes() {
+    const floatingCakes = document.querySelectorAll('.floating-cake');
+    
+    floatingCakes.forEach((cake, index) => {
+        // Add hover effects
+        cake.addEventListener('mouseenter', () => {
+            cake.style.transform = 'scale(1.5) rotate(15deg)';
+            cake.style.filter = 'drop-shadow(0 8px 16px rgba(255, 107, 157, 0.8))';
+            createSparklesAround(cake);
+        });
+        
+        cake.addEventListener('mouseleave', () => {
+            cake.style.transform = '';
+            cake.style.filter = '';
+        });
+        
+        // Add click effects
+        cake.addEventListener('click', () => {
+            createCakeConfetti(cake);
+        });
+        
+        // Add touch interactions for mobile
+        cake.addEventListener('touchstart', () => {
+            cake.style.transform = 'scale(1.3) rotate(10deg)';
+        });
+        
+        cake.addEventListener('touchend', () => {
+            setTimeout(() => {
+                cake.style.transform = '';
+            }, 300);
+        });
+    });
+}
+
+// Create sparkles around floating cakes
+function createSparklesAround(cake) {
+    for (let i = 0; i < 5; i++) {
+        setTimeout(() => {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'temp-sparkle';
+            sparkle.style.cssText = `
+                position: absolute;
+                left: ${cake.offsetLeft + Math.random() * 60 - 30}px;
+                top: ${cake.offsetTop + Math.random() * 60 - 30}px;
+                width: 4px;
+                height: 4px;
+                background: #fff;
+                border-radius: 50%;
+                box-shadow: 0 0 10px #fff, 0 0 20px #ff6b9d;
+                pointer-events: none;
+                z-index: 1000;
+                animation: tempSparkle 1s ease-out forwards;
+            `;
+            
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 1000);
+        }, i * 100);
+    }
+}
+
+// Cake confetti effect
+function createCakeConfetti(cake) {
+    const colors = ['#ff6b9d', '#ff8e8e', '#ffb3d9', '#ffd6e7', '#fff'];
+    
+    for (let i = 0; i < 20; i++) {
+        setTimeout(() => {
+            const confetti = document.createElement('div');
+            confetti.style.cssText = `
+                position: absolute;
+                left: ${cake.offsetLeft + cake.offsetWidth / 2}px;
+                top: ${cake.offsetTop + cake.offsetHeight / 2}px;
+                width: 8px;
+                height: 8px;
+                background: ${colors[Math.floor(Math.random() * colors.length)]};
+                border-radius: 2px;
+                pointer-events: none;
+                z-index: 1000;
+                animation: cakeConfetti 2s ease-out forwards;
+            `;
+            
+            document.body.appendChild(confetti);
+            
+            setTimeout(() => {
+                confetti.remove();
+            }, 2000);
+        }, i * 50);
+    }
+}
+
+// Mouse trail effect
+function initMouseTrail() {
+    const trail = document.querySelector('.mouse-trail');
+    let mouseX = 0, mouseY = 0;
+    let trailX = 0, trailY = 0;
+    
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        trail.style.opacity = '1';
+    });
+    
+    function updateTrail() {
+        trailX += (mouseX - trailX) * 0.1;
+        trailY += (mouseY - trailY) * 0.1;
+        
+        trail.style.left = trailX - 10 + 'px';
+        trail.style.top = trailY - 10 + 'px';
+        
+        requestAnimationFrame(updateTrail);
+    }
+    
+    updateTrail();
+    
+    // Hide trail when mouse leaves window
+    document.addEventListener('mouseleave', () => {
+        trail.style.opacity = '0';
+    });
+}
+
+// 3D Parallax effect for hero background
+function initHeroParallax() {
+    const hero = document.querySelector('.hero');
+    const bgLayers = document.querySelectorAll('.hero-bg-layer');
+    
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        
+        bgLayers.forEach((layer, index) => {
+            const speed = (index + 1) * 0.2;
+            layer.style.transform = `translateY(${rate * speed}px)`;
+        });
+    });
+}
+
+// Interactive title animation
+function initInteractiveTitle() {
+    const titleWords = document.querySelectorAll('.title-word');
+    
+    titleWords.forEach((word, index) => {
+        word.addEventListener('mouseenter', () => {
+            word.style.animation = 'titlePulse 0.5s ease-out';
+            setTimeout(() => {
+                word.style.animation = '';
+            }, 500);
+        });
+        
+        // Add typing effect on load
+        setTimeout(() => {
+            typeWriter(word, word.textContent, 100);
+        }, index * 200);
+    });
+}
+
+// Enhanced button interactions
+function initHeroButtons() {
+    const heroButtons = document.querySelectorAll('.btn-hero');
+    
+    heroButtons.forEach(button => {
+        button.addEventListener('mouseenter', () => {
+            createButtonParticles(button);
+        });
+        
+        button.addEventListener('click', () => {
+            createButtonRipple(button);
+        });
+    });
+}
+
+// Button particle effect
+function createButtonParticles(button) {
+    const particles = button.querySelector('.btn-particles');
+    
+    for (let i = 0; i < 8; i++) {
+        setTimeout(() => {
+            const particle = document.createElement('div');
+            particle.style.cssText = `
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 4px;
+                height: 4px;
+                background: #fff;
+                border-radius: 50%;
+                pointer-events: none;
+                animation: buttonParticle 1s ease-out forwards;
+            `;
+            
+            particles.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 1000);
+        }, i * 50);
+    }
+}
+
+// Button ripple effect
+function createButtonRipple(button) {
+    const ripple = document.createElement('div');
+    ripple.style.cssText = `
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        animation: buttonRipple 0.6s ease-out forwards;
+    `;
+    
+    button.appendChild(ripple);
+    
+    setTimeout(() => {
+        ripple.remove();
+    }, 600);
+}
+
 // Mobile performance optimizations
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
@@ -857,6 +1131,14 @@ window.addEventListener('scroll', () => {
 document.addEventListener('DOMContentLoaded', () => {
     // Add loading class to body
     document.body.classList.add('loaded');
+    
+    // Initialize groundbreaking hero interactions
+    initParticleSystem();
+    initFloatingCakes();
+    initMouseTrail();
+    initHeroParallax();
+    initInteractiveTitle();
+    initHeroButtons();
     
     // Initialize any additional animations
     console.log('Wrights Bake House website loaded successfully! 🎂✨');
