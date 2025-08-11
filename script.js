@@ -5,6 +5,13 @@ const navMenu = document.querySelector('.nav-menu');
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
+    
+    // Prevent body scroll when menu is open
+    if (navMenu.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
 });
 
 // Close mobile menu when clicking on a link
@@ -12,8 +19,86 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
     link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navMenu.classList.remove('active');
+        document.body.style.overflow = '';
     });
 });
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+});
+
+// Touch-friendly mobile interactions
+let touchStartY = 0;
+let touchEndY = 0;
+
+document.addEventListener('touchstart', (e) => {
+    touchStartY = e.changedTouches[0].screenY;
+});
+
+document.addEventListener('touchend', (e) => {
+    touchEndY = e.changedTouches[0].screenY;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    const swipeThreshold = 50;
+    const swipeDistance = touchStartY - touchEndY;
+    
+    // Swipe up to close mobile menu
+    if (swipeDistance > swipeThreshold && navMenu.classList.contains('active')) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+// Mobile performance optimizations
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+if (isMobile) {
+    // Reduce animation complexity on mobile
+    document.documentElement.style.setProperty('--animation-duration', '0.3s');
+    
+    // Optimize scroll performance
+    let ticking = false;
+    
+    function updateOnScroll() {
+        // Update navbar scroll state
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+        ticking = false;
+    }
+    
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(updateOnScroll);
+            ticking = true;
+        }
+    });
+    
+    // Disable hover effects on mobile
+    const style = document.createElement('style');
+    style.textContent = `
+        @media (hover: none) {
+            .service-card:hover,
+            .gallery-item:hover,
+            .step:hover,
+            .contact-item:hover {
+                transform: none !important;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+}
 
 // Smooth Scrolling for Anchor Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -63,8 +148,55 @@ const enquiryForm = document.getElementById('enquiryForm');
 const successMessage = document.getElementById('successMessage');
 
 if (enquiryForm) {
+    // Mobile-optimized form validation
+    const formFields = enquiryForm.querySelectorAll('input, textarea, select');
+    
+    formFields.forEach(field => {
+        // Add touch-friendly focus states
+        field.addEventListener('focus', () => {
+            field.parentElement.classList.add('focused');
+        });
+        
+        field.addEventListener('blur', () => {
+            field.parentElement.classList.remove('focused');
+            validateField(field);
+        });
+        
+        // Mobile-specific input handling
+        if (isMobile) {
+            field.addEventListener('input', () => {
+                // Auto-resize textarea on mobile
+                if (field.tagName === 'TEXTAREA') {
+                    field.style.height = 'auto';
+                    field.style.height = field.scrollHeight + 'px';
+                }
+                
+                // Validate on input for better UX
+                if (field.value.length > 0) {
+                    validateField(field);
+                }
+            });
+        }
+    });
+
     enquiryForm.addEventListener('submit', function(e) {
         e.preventDefault();
+        
+        // Validate all fields before submission
+        let isValid = true;
+        formFields.forEach(field => {
+            if (!validateField(field)) {
+                isValid = false;
+            }
+        });
+        
+        if (!isValid) {
+            // Show error message for mobile
+            if (isMobile) {
+                showMobileError('Please fill in all required fields correctly.');
+            }
+            return;
+        }
         
         // Add loading state
         const submitBtn = this.querySelector('.submit-btn');
@@ -290,20 +422,65 @@ if (enquiryForm) {
     });
 }
 
-// Gallery Lightbox
+// Mobile error display function
+function showMobileError(message) {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'mobile-error';
+    errorDiv.textContent = message;
+    errorDiv.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #ff6b6b;
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 10px;
+        z-index: 10000;
+        font-size: 0.9rem;
+        box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+        animation: slideInDown 0.3s ease;
+    `;
+    
+    document.body.appendChild(errorDiv);
+    
+    setTimeout(() => {
+        errorDiv.remove();
+    }, 4000);
+}
+
+// Gallery Lightbox with Mobile Optimizations
 const galleryItems = document.querySelectorAll('.gallery-item');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');
 const lightboxClose = document.getElementById('lightboxClose');
 
 galleryItems.forEach(item => {
-    item.addEventListener('click', () => {
-        const img = item.querySelector('img');
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightbox.classList.add('show');
-        document.body.style.overflow = 'hidden';
-    });
+    // Touch-friendly gallery interactions
+    if (isMobile) {
+        item.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            item.style.transform = 'scale(0.98)';
+        });
+        
+        item.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            item.style.transform = '';
+            const img = item.querySelector('img');
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+    } else {
+        item.addEventListener('click', () => {
+            const img = item.querySelector('img');
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+    }
 });
 
 if (lightboxClose) {
@@ -320,6 +497,26 @@ if (lightbox) {
             document.body.style.overflow = 'auto';
         }
     });
+    
+    // Mobile swipe to close lightbox
+    if (isMobile) {
+        let lightboxTouchStartY = 0;
+        let lightboxTouchEndY = 0;
+        
+        lightbox.addEventListener('touchstart', (e) => {
+            lightboxTouchStartY = e.changedTouches[0].screenY;
+        });
+        
+        lightbox.addEventListener('touchend', (e) => {
+            lightboxTouchEndY = e.changedTouches[0].screenY;
+            const swipeDistance = lightboxTouchStartY - lightboxTouchEndY;
+            
+            if (Math.abs(swipeDistance) > 100) {
+                lightbox.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
 }
 
 // Parallax Effect for Hero Section
