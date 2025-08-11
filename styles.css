@@ -210,7 +210,7 @@ p {
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(135deg, #ff6b9d, #ff8e8e);
+    background: linear-gradient(135deg, #b48f62, #ad926e);
     transition: width 0.3s ease;
 }
 
@@ -233,7 +233,7 @@ p {
 .hamburger span {
     width: 25px;
     height: 3px;
-    background: #ff6b9d;
+    background: #b48f62;
     margin: 3px 0;
     transition: 0.3s;
     border-radius: 2px;
@@ -248,7 +248,7 @@ p {
     justify-content: center;
     text-align: center;
     position: relative;
-    background: linear-gradient(135deg, #ffeef8 0%, #fff5f5 50%, #f0f8ff 100%);
+    background: linear-gradient(135deg, #faf8f5 0%, #f0e0bb 50%, #faf8f5 100%);
     overflow: visible;
     padding: 6rem 0 4rem 0;
     perspective: 1000px;
@@ -322,9 +322,9 @@ p {
     position: absolute;
     width: 4px;
     height: 4px;
-    background: linear-gradient(45deg, #ff6b9d, #ff8e8e, #ffb3d9);
+    background: linear-gradient(45deg, #b48f62, #ad926e, #f0e0bb);
     border-radius: 50%;
-    box-shadow: 0 0 10px rgba(255, 107, 157, 0.6);
+    box-shadow: 0 0 10px rgba(180, 143, 98, 0.6);
     animation: particleFloat 8s ease-in-out infinite;
 }
 
@@ -600,7 +600,7 @@ p {
 
 .btn-hero:hover {
     transform: translateY(-8px) scale(1.05) rotateX(10deg);
-    box-shadow: 0 20px 40px rgba(255, 107, 157, 0.4);
+    box-shadow: 0 20px 40px rgba(180, 143, 98, 0.4);
 }
 
 .btn-content {
@@ -635,7 +635,7 @@ p {
     height: 6px;
     background: #fff;
     border-radius: 50%;
-    box-shadow: 0 0 10px #fff, 0 0 20px #ff6b9d;
+                    box-shadow: 0 0 10px #fff, 0 0 20px #b48f62;
     animation: sparkleTwinkle 3s ease-in-out infinite;
 }
 
@@ -815,7 +815,7 @@ section {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #ff6b9d;
+    color: #b48f62;
     font-weight: 600;
 }
 
@@ -864,7 +864,7 @@ section {
     padding: 2.5rem;
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 15px 35px rgba(255, 107, 157, 0.1);
+    box-shadow: 0 15px 35px rgba(180, 143, 98, 0.1);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
@@ -877,7 +877,7 @@ section {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(135deg, #ff6b9d, #ff8e8e, #ffb3d9);
+    background: linear-gradient(135deg, #b48f62, #ad926e, #f0e0bb);
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
@@ -888,12 +888,12 @@ section {
 
 .service-card:hover {
     transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 25px 50px rgba(255, 107, 157, 0.2);
+    box-shadow: 0 25px 50px rgba(180, 143, 98, 0.2);
 }
 
 .service-card i {
     font-size: 3rem;
-    color: #ff6b9d;
+    color: #b48f62;
     margin-bottom: 1.5rem;
     transition: transform 0.3s ease;
 }
@@ -997,20 +997,20 @@ section {
     padding: 2rem;
     background: white;
     border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(255, 107, 157, 0.1);
+    box-shadow: 0 10px 25px rgba(180, 143, 98, 0.1);
     transition: all 0.3s ease;
     position: relative;
 }
 
 .step:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(255, 107, 157, 0.2);
+    box-shadow: 0 15px 35px rgba(180, 143, 98, 0.2);
 }
 
 .step-number {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #ff6b9d, #ff8e8e);
+    background: linear-gradient(135deg, #b48f62, #ad926e);
     color: white;
     border-radius: 50%;
     display: flex;
@@ -1037,7 +1037,7 @@ section {
 
 /* Contact Section */
 .contact {
-    background: linear-gradient(135deg, #fff5f5 0%, #ffeef8 100%);
+    background: linear-gradient(135deg, #faf8f5 0%, #f0e0bb 100%);
 }
 
 .contact-content {
@@ -1058,7 +1058,7 @@ section {
     padding: 1.5rem;
     background: white;
     border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(255, 107, 157, 0.1);
+    box-shadow: 0 10px 25px rgba(180, 143, 98, 0.1);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -1071,7 +1071,7 @@ section {
     left: 0;
     width: 4px;
     height: 100%;
-    background: linear-gradient(135deg, #ff6b9d, #ff8e8e);
+    background: linear-gradient(135deg, #b48f62, #ad926e);
     transform: scaleY(0);
     transition: transform 0.3s ease;
 }
@@ -1082,12 +1082,12 @@ section {
 
 .contact-item:hover {
     transform: translateX(10px);
-    box-shadow: 0 15px 35px rgba(255, 107, 157, 0.2);
+    box-shadow: 0 15px 35px rgba(180, 143, 98, 0.2);
 }
 
 .contact-item i {
     font-size: 1.5rem;
-    color: #ff6b9d;
+    color: #b48f62;
     margin-right: 1rem;
     width: 40px;
     text-align: center;

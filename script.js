@@ -156,7 +156,7 @@ function createSparklesAround(element) {
                 height: 4px;
                 background: #fff;
                 border-radius: 50%;
-                box-shadow: 0 0 10px #fff, 0 0 20px #ad926e;
+                box-shadow: 0 0 10px #fff, 0 0 20px #b48f62;
                 pointer-events: none;
                 z-index: 1000;
                 animation: tempSparkle 1s ease-out forwards;
@@ -900,7 +900,7 @@ document.addEventListener('mousemove', (e) => {
         trailDot.style.top = e.clientY + 'px';
         trailDot.style.width = '4px';
         trailDot.style.height = '4px';
-        trailDot.style.background = 'linear-gradient(135deg, #ff6b9d, #ffb3d9)';
+                        trailDot.style.background = 'linear-gradient(135deg, #b48f62, #ad926e)';
         trailDot.style.borderRadius = '50%';
         trailDot.style.pointerEvents = 'none';
         trailDot.style.zIndex = '9999';
@@ -981,7 +981,7 @@ if (logo) {
 
 // Confetti Effect for Form Submission
 function createConfetti() {
-    const colors = ['#ff6b9d', '#ff8e8e', '#ffb3d9', '#ffd6e7', '#ff6b6b'];
+            const colors = ['#b48f62', '#ad926e', '#f0e0bb', '#fff', '#8b7355'];
     
     for (let i = 0; i < 50; i++) {
         const confetti = document.createElement('div');
