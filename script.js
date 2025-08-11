@@ -514,7 +514,7 @@ This enquiry was sent from the Wrights Bake House website contact form.
         `.trim();
         
         // Create mailto link
-        const mailtoLink = `mailto:booking@wrightsbakehouse.co.uk?subject=New Cake Enquiry - ${enquiryData.occasion}&body=${encodeURIComponent(emailBody)}`;
+        const mailtoLink = `mailto:bookings@wrightsbakehouse.co.uk?subject=New Cake Enquiry - ${enquiryData.occasion}&body=${encodeURIComponent(emailBody)}`;
         
         // Simulate form submission delay
         setTimeout(() => {
