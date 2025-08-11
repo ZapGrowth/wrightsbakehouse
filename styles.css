@@ -252,7 +252,7 @@ p {
     text-align: center;
     position: relative;
     background: linear-gradient(135deg, #ffeef8 0%, #fff5f5 50%, #f0f8ff 100%);
-    overflow: hidden;
+    overflow: visible;
     padding: 6rem 0 4rem 0;
     perspective: 1000px;
 }
@@ -491,7 +491,7 @@ p {
 /* Advanced Hero Content */
 .hero-content {
     position: relative;
-    z-index: 5;
+    z-index: 15;
     max-width: 900px;
     padding: 2rem;
     animation: heroContentAppear 1.5s ease-out;
@@ -576,6 +576,8 @@ p {
     justify-content: center;
     flex-wrap: wrap;
     animation: slideInUp 1s ease-out 0.9s both;
+    position: relative;
+    z-index: 10;
 }
 
 /* Enhanced Hero Buttons */
@@ -1631,24 +1633,7 @@ section {
     }
 }
 
-/* Success Message */
-.success-message {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: linear-gradient(135deg, #ff6b9d, #ff8e8e);
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(255, 107, 157, 0.3);
-    transform: translateX(400px);
-    transition: transform 0.3s ease;
-    z-index: 3000;
-}
 
-.success-message.show {
-    transform: translateX(0);
-}
 
 /* Fade In Up Animation */
 .fade-in-up {
@@ -1954,13 +1939,7 @@ section {
         font-size: 1.2rem;
     }
 
-    /* Success Message */
-    .success-message {
-        left: 1rem;
-        right: 1rem;
-        padding: 1.5rem;
-        font-size: 1rem;
-    }
+
 }
 
 @keyframes slideInMenu {
@@ -2243,11 +2222,7 @@ section {
     /* Success Message */
     .success-message {
         left: 0.5rem;
-        right: 0.5rem;
-        padding: 1rem;
-        font-size: 0.9rem;
-        border-radius: 15px;
-    }
+
 
     /* Logo */
     .logo-img {
