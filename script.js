@@ -200,51 +200,9 @@ function createElementConfetti(element) {
     }
 }
 
-// Mouse trail effect
-function initMouseTrail() {
-    const trail = document.querySelector('.mouse-trail');
-    let mouseX = 0, mouseY = 0;
-    let trailX = 0, trailY = 0;
-    
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        trail.style.opacity = '1';
-    });
-    
-    function updateTrail() {
-        trailX += (mouseX - trailX) * 0.1;
-        trailY += (mouseY - trailY) * 0.1;
-        
-        trail.style.left = trailX - 10 + 'px';
-        trail.style.top = trailY - 10 + 'px';
-        
-        requestAnimationFrame(updateTrail);
-    }
-    
-    updateTrail();
-    
-    // Hide trail when mouse leaves window
-    document.addEventListener('mouseleave', () => {
-        trail.style.opacity = '0';
-    });
-}
 
-// 3D Parallax effect for hero background
-function initHeroParallax() {
-    const hero = document.querySelector('.hero');
-    const bgLayers = document.querySelectorAll('.hero-bg-layer');
-    
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const rate = scrolled * -0.5;
-        
-        bgLayers.forEach((layer, index) => {
-            const speed = (index + 1) * 0.2;
-            layer.style.transform = `translateY(${rate * speed}px)`;
-        });
-    });
-}
+
+
 
 // Interactive title animation
 function initInteractiveTitle() {
@@ -793,21 +751,7 @@ if (lightbox) {
     }
 }
 
-// Parallax Effect for Hero Section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    const cakeDecorations = document.querySelectorAll('.cake-decoration');
-    
-    if (hero) {
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
-    
-    cakeDecorations.forEach((decoration, index) => {
-        const speed = 0.5 + (index * 0.1);
-        decoration.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
-    });
-});
+
 
 // Image Loading Animation
 const images = document.querySelectorAll('img');
@@ -877,41 +821,7 @@ function createSparkle() {
 // Create sparkles periodically
 setInterval(createSparkle, 3000);
 
-// Mouse Trail Effect
-let mouseTrail = [];
-const trailLength = 20;
 
-document.addEventListener('mousemove', (e) => {
-    mouseTrail.push({
-        x: e.clientX,
-        y: e.clientY,
-        timestamp: Date.now()
-    });
-    
-    if (mouseTrail.length > trailLength) {
-        mouseTrail.shift();
-    }
-    
-    // Create trail effect
-    if (mouseTrail.length > 5) {
-        const trailDot = document.createElement('div');
-        trailDot.style.position = 'fixed';
-        trailDot.style.left = e.clientX + 'px';
-        trailDot.style.top = e.clientY + 'px';
-        trailDot.style.width = '4px';
-        trailDot.style.height = '4px';
-                        trailDot.style.background = 'linear-gradient(135deg, #b48f62, #ad926e)';
-        trailDot.style.borderRadius = '50%';
-        trailDot.style.pointerEvents = 'none';
-        trailDot.style.zIndex = '9999';
-        trailDot.style.opacity = '0.7';
-        document.body.appendChild(trailDot);
-        
-        setTimeout(() => {
-            trailDot.remove();
-        }, 1000);
-    }
-});
 
 // Typing Effect for Hero Title
 function typeWriter(element, text, speed = 100) {
@@ -1115,17 +1025,7 @@ if (window.innerWidth <= 768) {
 // Performance Optimization
 let ticking = false;
 
-function updateAnimations() {
-    // Update parallax and other scroll-based animations
-    ticking = false;
-}
 
-window.addEventListener('scroll', () => {
-    if (!ticking) {
-        requestAnimationFrame(updateAnimations);
-        ticking = true;
-    }
-});
 
 // Initialize all animations when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
@@ -1135,8 +1035,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize groundbreaking hero interactions
     initParticleSystem();
     initDecorativeElements();
-    initMouseTrail();
-    initHeroParallax();
+
+
     initInteractiveTitle();
     initHeroButtons();
     
