@@ -300,13 +300,7 @@ if (isMobile) {
     let ticking = false;
     
     function updateOnScroll() {
-        // Update navbar scroll state
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
+        // Static navbar - no scroll effects needed
         ticking = false;
     }
     
@@ -346,15 +340,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar Background Change on Scroll
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
+// Static navbar - no background changes needed
 
 // Intersection Observer for Animations
 const observerOptions = {
