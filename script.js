@@ -107,56 +107,56 @@ function createParticleExplosion(particle) {
     }, 600);
 }
 
-// Floating cake interactions
-function initFloatingCakes() {
-    const floatingCakes = document.querySelectorAll('.floating-cake');
+// Professional decorative element interactions
+function initDecorativeElements() {
+    const decorativeElements = document.querySelectorAll('.decorative-element');
     
-    floatingCakes.forEach((cake, index) => {
+    decorativeElements.forEach((element, index) => {
         // Add hover effects
-        cake.addEventListener('mouseenter', () => {
-            cake.style.transform = 'scale(1.5) rotate(15deg)';
-            cake.style.filter = 'drop-shadow(0 8px 16px rgba(255, 107, 157, 0.8))';
-            createSparklesAround(cake);
+        element.addEventListener('mouseenter', () => {
+            element.style.transform = 'scale(1.5)';
+            element.style.boxShadow = '0 8px 16px rgba(173, 146, 110, 0.8)';
+            createSparklesAround(element);
         });
         
-        cake.addEventListener('mouseleave', () => {
-            cake.style.transform = '';
-            cake.style.filter = '';
+        element.addEventListener('mouseleave', () => {
+            element.style.transform = '';
+            element.style.boxShadow = '';
         });
         
         // Add click effects
-        cake.addEventListener('click', () => {
-            createCakeConfetti(cake);
+        element.addEventListener('click', () => {
+            createElementConfetti(element);
         });
         
         // Add touch interactions for mobile
-        cake.addEventListener('touchstart', () => {
-            cake.style.transform = 'scale(1.3) rotate(10deg)';
+        element.addEventListener('touchstart', () => {
+            element.style.transform = 'scale(1.3)';
         });
         
-        cake.addEventListener('touchend', () => {
+        element.addEventListener('touchend', () => {
             setTimeout(() => {
-                cake.style.transform = '';
+                element.style.transform = '';
             }, 300);
         });
     });
 }
 
-// Create sparkles around floating cakes
-function createSparklesAround(cake) {
+// Create sparkles around decorative elements
+function createSparklesAround(element) {
     for (let i = 0; i < 5; i++) {
         setTimeout(() => {
             const sparkle = document.createElement('div');
             sparkle.className = 'temp-sparkle';
             sparkle.style.cssText = `
                 position: absolute;
-                left: ${cake.offsetLeft + Math.random() * 60 - 30}px;
-                top: ${cake.offsetTop + Math.random() * 60 - 30}px;
+                left: ${element.offsetLeft + Math.random() * 60 - 30}px;
+                top: ${element.offsetTop + Math.random() * 60 - 30}px;
                 width: 4px;
                 height: 4px;
                 background: #fff;
                 border-radius: 50%;
-                box-shadow: 0 0 10px #fff, 0 0 20px #ff6b9d;
+                box-shadow: 0 0 10px #fff, 0 0 20px #ad926e;
                 pointer-events: none;
                 z-index: 1000;
                 animation: tempSparkle 1s ease-out forwards;
@@ -171,17 +171,17 @@ function createSparklesAround(cake) {
     }
 }
 
-// Cake confetti effect
-function createCakeConfetti(cake) {
-    const colors = ['#ff6b9d', '#ff8e8e', '#ffb3d9', '#ffd6e7', '#fff'];
+// Element confetti effect
+function createElementConfetti(element) {
+    const colors = ['#b48f62', '#ad926e', '#f0e0bb', '#fff'];
     
     for (let i = 0; i < 20; i++) {
         setTimeout(() => {
             const confetti = document.createElement('div');
             confetti.style.cssText = `
                 position: absolute;
-                left: ${cake.offsetLeft + cake.offsetWidth / 2}px;
-                top: ${cake.offsetTop + cake.offsetHeight / 2}px;
+                left: ${element.offsetLeft + element.offsetWidth / 2}px;
+                top: ${element.offsetTop + element.offsetHeight / 2}px;
                 width: 8px;
                 height: 8px;
                 background: ${colors[Math.floor(Math.random() * colors.length)]};
@@ -1134,12 +1134,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize groundbreaking hero interactions
     initParticleSystem();
-    initFloatingCakes();
+    initDecorativeElements();
     initMouseTrail();
     initHeroParallax();
     initInteractiveTitle();
     initHeroButtons();
     
     // Initialize any additional animations
-    console.log('Wrights Bake House website loaded successfully! 🎂✨');
+    console.log('Wrights Bake House website loaded successfully!');
 });
