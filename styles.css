@@ -235,7 +235,7 @@ p {
     background: rgba(180, 143, 98, 0.75);
     backdrop-filter: blur(30px) saturate(1.2);
     -webkit-backdrop-filter: blur(30px) saturate(1.2);
-    padding: 2rem 0;
+    padding: 1rem 0;
     z-index: 1000;
     transition: all 0.3s ease;
     box-shadow: 
@@ -243,7 +243,6 @@ p {
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
     border-bottom: 1px solid rgba(255, 255, 255, 0.25);
     border-top: 1px solid rgba(255, 255, 255, 0.15);
-    min-height: 200px;
 }
 
 /* Static header - no scrolled state needed */
@@ -267,9 +266,9 @@ p {
     font-weight: 700;
     font-size: 1.1rem;
     transition: all 0.3s ease;
-    min-height: 120px;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     letter-spacing: 0.02em;
+    padding: 0.5rem 0;
 }
 
 .logo-img {
@@ -1743,7 +1742,8 @@ section {
         z-index: 1001;
         align-items: center;
         justify-content: center;
-        height: 60px;
+        height: 150px;
+        flex-direction: column;
     }
 
     .nav-menu {
@@ -2123,7 +2123,6 @@ section {
         font-family: var(--font-display);
         font-size: 0;
         gap: 0.5rem;
-        min-height: 100px;
         padding: 0.5rem 0;
         display: flex !important;
         align-items: center;
