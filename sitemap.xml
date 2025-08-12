@@ -24,7 +24,7 @@
 
     <!-- Terms and Conditions -->
     <url>
-        <loc>https://wrightsbakehouse.co.uk/terms.html</loc>
+        <loc>https://wrightsbakehouse.co.uk/terms</loc>
         <lastmod>2024-12-19</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
@@ -32,7 +32,7 @@
 
     <!-- Allergy Disclaimer -->
     <url>
-        <loc>https://wrightsbakehouse.co.uk/allergy-disclaimer.html</loc>
+        <loc>https://wrightsbakehouse.co.uk/allergy-disclaimer</loc>
         <lastmod>2024-12-19</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>

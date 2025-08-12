@@ -42,8 +42,18 @@ ErrorDocument 404 /404.html
 # URL Rewriting for clean URLs
 RewriteEngine On
 
-# Redirect old pricing.html to new menu file
-RewriteRule ^pricing\.html$ menu.html [R=301,L]
+# Remove .html extension from URLs
+# Redirect .html to extensionless URLs
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1 [NC,L,R=301]
+
+# Serve .html files for extensionless URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^.]*)$ $1.html [NC,L]
+
+# Redirect old pricing.html to new menu URL
+RewriteRule ^pricing\.html$ /menu [R=301,L]
 
 # Security headers
 <IfModule mod_headers.c>
