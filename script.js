@@ -624,21 +624,7 @@ document.querySelectorAll('.checkbox-label input[type="checkbox"]').forEach(chec
     });
 });
 
-// Form submission prevention for demo (remove in production)
-if (enquiryForm) {
-    enquiryForm.addEventListener('submit', function(e) {
-        // In a real implementation, you would send the data to a server
-        // For now, we'll just show the success message and create confetti
-        console.log('Form data collected:', {
-            name: this.name.value,
-            email: this.email.value,
-            phone: this.phone.value,
-            occasion: this.occasion.value,
-            guests: this.guests.value,
-            message: this.message.value
-        });
-    });
-}
+// Form is already handled above with proper mailto functionality
 
 // Mobile error display function
 function showMobileError(message) {
