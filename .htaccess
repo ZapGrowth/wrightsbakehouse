@@ -42,15 +42,10 @@ ErrorDocument 404 /404.html
 # URL Rewriting for clean URLs
 RewriteEngine On
 
-# Remove .html extension from URLs
-# Redirect .html to extensionless URLs
-RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
-RewriteRule ^ /%1 [NC,L,R=301]
-
-# Serve .html files for extensionless URLs
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^.]*)$ $1.html [NC,L]
+# Simple direct mappings
+RewriteRule ^menu/?$ menu.html [L]
+RewriteRule ^terms/?$ terms.html [L]
+RewriteRule ^allergy-disclaimer/?$ allergy-disclaimer.html [L]
 
 # Redirect old pricing.html to new menu URL
 RewriteRule ^pricing\.html$ /menu [R=301,L]
