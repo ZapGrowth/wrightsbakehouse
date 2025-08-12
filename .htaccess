@@ -45,13 +45,9 @@ RewriteEngine On
 # Redirect old pricing.html to new menu URL
 RewriteRule ^pricing\.html$ /menu [R=301,L]
 
-# Redirect old index.html to home
-RewriteRule ^index\.html$ /home [R=301,L]
-
 # Handle clean URLs
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^home/?$ /home.html [L]
 RewriteRule ^menu/?$ /menu.html [L]
 
 # Security headers
