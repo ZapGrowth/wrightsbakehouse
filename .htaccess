@@ -42,7 +42,7 @@ ErrorDocument 404 /404.html
 # URL Rewriting for clean URLs
 RewriteEngine On
 
-# Both /menu and /pricing serve the same menu.html file
+# Both /menu and /pricing serve the same menu.html file (which has all the menu content)
 RewriteRule ^menu/?$ menu.html [L]
 RewriteRule ^pricing/?$ menu.html [L]
 RewriteRule ^terms/?$ terms.html [L]
