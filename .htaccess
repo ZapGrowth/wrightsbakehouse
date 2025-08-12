@@ -42,13 +42,11 @@ ErrorDocument 404 /404.html
 # URL Rewriting for clean URLs
 RewriteEngine On
 
-# Simple direct mappings
+# Both /menu and /pricing serve the same menu.html file
 RewriteRule ^menu/?$ menu.html [L]
+RewriteRule ^pricing/?$ menu.html [L]
 RewriteRule ^terms/?$ terms.html [L]
 RewriteRule ^allergy-disclaimer/?$ allergy-disclaimer.html [L]
-
-# Redirect old pricing.html to new menu URL
-RewriteRule ^pricing\.html$ /menu [R=301,L]
 
 # Security headers
 <IfModule mod_headers.c>
