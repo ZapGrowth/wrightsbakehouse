@@ -153,6 +153,8 @@ p {
     font-family: var(--font-accent);
     color: var(--warm-brown);
     font-weight: 600;
+    font-size: var(--text-2xl);
+    line-height: 1.4;
 }
 
 .ui-text {
