@@ -107,7 +107,7 @@ function createParticleExplosion(particle) {
     }, 600);
 }
 
-// Professional decorative element interactions
+// Passionate decorative element interactions
 function initDecorativeElements() {
     const decorativeElements = document.querySelectorAll('.decorative-element');
     
